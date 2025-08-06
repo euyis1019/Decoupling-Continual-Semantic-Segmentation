@@ -5,8 +5,7 @@
 
 > **Decoupling Continual Semantic Segmentation**  
 > Yifu Guo*, Yuquan Lu*, Wentao Zhang, Zishan Xu, Dexia Chen, Siyu Zhang, Yizhe Zhang, Ruixuan Wang†  
-> *Sun Yat-sen University, South China Normal University, Southwest University, Nanjing University of Science and Technology*  
-> **ICCV 2025**
+> *Sun Yat-sen University, South China Normal University, Southwest University, Nanjing University of Science and Technology*
 
 ## 📝 Abstract
 
@@ -72,6 +71,12 @@ Our method consistently outperforms existing approaches:
 - **Enhanced Plasticity**: Effective learning of new classes  
 - **Balanced Performance**: Optimal trade-off between stability and adaptability
 
+### Qualitative Analysis
+
+![Qualitative Analysis](docs/fig/qualitative_analysis.png)
+
+Our qualitative results demonstrate zero forgetting and excellent learning performance. The visualization clearly shows how our decoupled approach maintains knowledge of previous classes while effectively learning new ones across different continual learning steps.
+
 ### Challenging Settings
 Representative results on challenging 2-2 and 4-2 settings demonstrate the robustness of our approach.
 
@@ -87,11 +92,11 @@ DecoupleCSS is particularly suited for:
 If you find this work useful for your research, please cite:
 
 ```bibtex
-@inproceedings{guo2024decoupling,
+@article{guo2024decoupling,
   title={Decoupling Continual Semantic Segmentation},
   author={Guo, Yifu and Lu, Yuquan and Zhang, Wentao and Xu, Zishan and Chen, Dexia and Zhang, Siyu and Zhang, Yizhe and Wang, Ruixuan},
-  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
-  year={2025}
+  journal={arXiv preprint arXiv:XXXXX},
+  year={2024}
 }
 ```
 
