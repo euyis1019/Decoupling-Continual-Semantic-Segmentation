@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DecoupleCSS: Decoupling Continual Semantic Segmentation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="title">DecoupleCSS</h1>
+            <p class="subtitle">Decoupling Continual Semantic Segmentation</p>
+            <div class="authors">
+                <span class="author">Yifu Guo<sup>1,2,*</sup></span>
+                <span class="author">Yuquan Lu<sup>1,2,*</sup></span>
+                <span class="author">Wentao Zhang<sup>1</sup></span>
+                <span class="author">Zishan Xu<sup>2</sup></span>
+                <span class="author">Dexia Chen<sup>1</sup></span>
+                <span class="author">Siyu Zhang<sup>3</sup></span>
+                <span class="author">Yizhe Zhang<sup>4</sup></span>
+                <span class="author">Ruixuan Wang<sup>1,†</sup></span>
+            </div>
+            <div class="affiliations">
+                <p><sup>1</sup>Sun Yat-sen University, <sup>2</sup>South China Normal University,<br>
+                <sup>3</sup>Southwest University, <sup>4</sup>Nanjing University of Science and Technology</p>
+                <p class="notes"><sup>*</sup>Equal contribution. <sup>†</sup>Corresponding author.</p>
+            </div>
+            <div class="conference">
+                <span class="venue">ICCV 2025</span>
+            </div>
+            <div class="links">
+                <a href="#" class="link-button">
+                    <i class="fas fa-file-pdf"></i> Paper (arXiv)
+                </a>
+                <a href="https://github.com/your-username/Decoupling-Continual-Semantic-Segmentation" class="link-button">
+                    <i class="fab fa-github"></i> Code (Coming Soon)
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <section class="abstract-section">
+                <h2>Abstract</h2>
+                <p class="abstract">
+                    Continual Semantic Segmentation (CSS) requires learning new classes without forgetting previously acquired knowledge, addressing the fundamental challenge of catastrophic forgetting in dense prediction tasks. However, existing CSS methods typically employ single-stage encoder-decoder architectures where segmentation masks and class labels are tightly coupled, leading to interference between old and new class learning and suboptimal retention-plasticity balance.
+                </p>
+                <p class="abstract">
+                    We introduce <strong>DecoupleCSS</strong>, a novel two-stage framework for CSS. By decoupling class-aware detection from class-agnostic segmentation, DecoupleCSS enables more effective continual learning, preserving past knowledge while learning new classes. The first stage leverages pre-trained text and image encoders, adapted using LoRA, to encode class-specific information and generate location-aware prompts. In the second stage, the Segment Anything Model (SAM) is employed to produce precise segmentation masks, ensuring that segmentation knowledge is shared across both new and previous classes.
+                </p>
+            </section>
+
+            <section class="overview-section">
+                <h2>Method Overview</h2>
+                <div class="figure">
+                    <img src="fig/method_overview.jpg" alt="Method Overview" class="overview-image">
+                    <p class="caption">
+                        <strong>Overview of the proposed method.</strong> (a) The overall architecture comprises language-driven task-aware class detection, segmentation prompt generation, and class-agnostic segmentation modules. (b) Representative results on challenging settings (2-2 and 4-2) for CSS on Pascal VOC 2012.
+                    </p>
+                </div>
+                
+                <div class="method-details">
+                    <div class="stage">
+                        <h3><span class="stage-number">1</span> Class-Aware Detection</h3>
+                        <ul>
+                            <li><strong>Text-Image Fusion:</strong> Leverages pre-trained text and image encoders to extract class-specific semantic information</li>
+                            <li><strong>LoRA Adaptation:</strong> Adapts image encoders for new tasks using Low-Rank Adaptation while preserving old knowledge</li>
+                            <li><strong>Prompt Generation:</strong> Generates class-aware and location-specific prompts for segmentation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="stage">
+                        <h3><span class="stage-number">2</span> Class-Agnostic Segmentation</h3>
+                        <ul>
+                            <li><strong>SAM Integration:</strong> Employs Segment Anything Model to produce precise segmentation masks</li>
+                            <li><strong>Knowledge Sharing:</strong> Segmentation knowledge is shared across both new and previous classes</li>
+                            <li><strong>Consistent Performance:</strong> Maintains high segmentation quality for all classes</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="architecture-section">
+                <h2>Architecture Details</h2>
+                <div class="figure">
+                    <img src="fig/method_model.png" alt="Model Architecture" class="architecture-image">
+                    <p class="caption">
+                        <strong>Detailed architecture of DecoupleCSS.</strong> The framework consists of class-aware detection (red components) and class-agnostic segmentation (gray components).
+                    </p>
+                </div>
+                
+                <div class="components-grid">
+                    <div class="component">
+                        <h4>Pre-trained Text Encoder</h4>
+                        <p>Processes class-specific textual information to provide semantic guidance</p>
+                    </div>
+                    <div class="component">
+                        <h4>LoRA-adapted Image Encoder</h4>
+                        <p>Efficiently adapts to new tasks while preserving old knowledge through Low-Rank Adaptation</p>
+                    </div>
+                    <div class="component">
+                        <h4>Prompt Generator</h4>
+                        <p>Creates location-aware prompts for precise segmentation based on class-specific features</p>
+                    </div>
+                    <div class="component">
+                        <h4>SAM Segmentator</h4>
+                        <p>Generates high-quality masks using class-agnostic foundation model capabilities</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="results-section">
+                <h2>Experimental Results</h2>
+                <div class="figure">
+                    <img src="fig/exp_main_results.png" alt="Main Results" class="results-image">
+                    <p class="caption">
+                        <strong>Main experimental results.</strong> Our method achieves state-of-the-art performance across multiple CSS benchmarks.
+                    </p>
+                </div>
+                
+                <div class="results-grid">
+                    <div class="result-item">
+                        <h4>Pascal VOC 2012</h4>
+                        <p>Significant improvements across 19-1, 15-5, 10-1, 2-2, and 4-2 settings with superior old class retention and robust performance in challenging scenarios</p>
+                    </div>
+                    <div class="result-item">
+                        <h4>ADE20K</h4>
+                        <p>Outstanding performance on complex multi-class scenarios in 100-50 and 150-50 settings</p>
+                    </div>
+                    <div class="result-item">
+                        <h4>Challenging Scenarios</h4>
+                        <p>Robust performance on difficult 2-2 and 4-2 incremental learning settings</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="contributions-section">
+                <h2>Key Contributions</h2>
+                <div class="contributions-grid">
+                    <div class="contribution">
+                        <div class="contribution-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h4>Novel Framework</h4>
+                        <p>First to explicitly decouple class-aware detection from class-agnostic segmentation in CSS</p>
+                    </div>
+                    <div class="contribution">
+                        <div class="contribution-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h4>Foundation Model Integration</h4>
+                        <p>Pioneering use of SAM for continual semantic segmentation tasks</p>
+                    </div>
+                    <div class="contribution">
+                        <div class="contribution-icon">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <h4>Effective Knowledge Preservation</h4>
+                        <p>Achieves superior balance between retention and plasticity</p>
+                    </div>
+                    <div class="contribution">
+                        <div class="contribution-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h4>State-of-the-Art Performance</h4>
+                        <p>Demonstrates significant improvements across diverse CSS benchmarks</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="applications-section">
+                <h2>Applications</h2>
+                <div class="applications-grid">
+                    <div class="application">
+                        <i class="fas fa-car"></i>
+                        <h4>Autonomous Driving</h4>
+                        <p>Incremental learning of new road elements and traffic scenarios</p>
+                    </div>
+                    <div class="application">
+                        <i class="fas fa-heartbeat"></i>
+                        <h4>Medical Imaging</h4>
+                        <p>Progressive learning of new anatomical structures and pathologies</p>
+                    </div>
+                    <div class="application">
+                        <i class="fas fa-satellite"></i>
+                        <h4>Remote Sensing</h4>
+                        <p>Continual adaptation to new geographical features and land use types</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="citation-section">
+                <h2>Citation</h2>
+                <div class="citation-box">
+                    <pre><code>@inproceedings{guo2024decoupling,
+  title={Decoupling Continual Semantic Segmentation},
+  author={Guo, Yifu and Lu, Yuquan and Zhang, Wentao and 
+          Xu, Zishan and Chen, Dexia and Zhang, Siyu and 
+          Zhang, Yizhe and Wang, Ruixuan},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  year={2025}
+}</code></pre>
+                </div>
+            </section>
+
+            <section class="contact-section">
+                <h2>Contact</h2>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Yifu Guo:</strong>
+                            <a href="mailto:20223801024@m.scnu.edu.cn">20223801024@m.scnu.edu.cn</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Ruixuan Wang:</strong>
+                            <a href="mailto:wangruix5@mail.sysu.edu.cn">wangruix5@mail.sysu.edu.cn</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 DecoupleCSS. All rights reserved.</p>
+            <p class="note">The code will be made publicly available upon paper acceptance.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Copy citation to clipboard
+        const citationCode = document.querySelector('.citation-box code');
+        if (citationCode) {
+            citationCode.addEventListener('click', function() {
+                navigator.clipboard.writeText(this.textContent).then(function() {
+                    // Could add a tooltip or notification here
+                    console.log('Citation copied to clipboard');
+                });
+            });
+        }
+    </script>
+</body>
+</html>
