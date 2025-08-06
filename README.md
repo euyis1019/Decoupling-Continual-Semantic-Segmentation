@@ -46,6 +46,18 @@ Our method achieves state-of-the-art performance across multiple challenging CSS
 - **100-50 Setting**: Outstanding performance on complex multi-class scenarios
 - **150-50 Setting**: Effective handling of large-scale incremental learning
 
+### Qualitative Analysis
+
+![Qualitative Analysis](docs/fig/qualitative_analysis.png)
+
+Our qualitative results demonstrate zero forgetting and excellent learning performance. The visualization clearly shows how our decoupled approach maintains knowledge of previous classes while effectively learning new ones across different continual learning steps.
+
+### Key Performance Highlights
+- **Better Retention**: Superior preservation of old class knowledge
+- **Enhanced Plasticity**: Effective learning of new classes  
+- **Balanced Performance**: Optimal trade-off between stability and adaptability
+- **Challenging Settings**: Robust performance on difficult 2-2 and 4-2 incremental learning scenarios
+
 ## 🔧 Architecture Details
 
 ![Model Architecture](assets/method_model.png)
@@ -62,23 +74,6 @@ Our method achieves state-of-the-art performance across multiple challenging CSS
 2. **Foundation Model Integration**: Pioneering use of SAM for continual semantic segmentation tasks
 3. **Effective Knowledge Preservation**: Achieves superior balance between retention and plasticity
 4. **State-of-the-Art Performance**: Demonstrates significant improvements across diverse CSS benchmarks
-
-## 📈 Experimental Results
-
-### Quantitative Results
-Our method consistently outperforms existing approaches:
-- **Better Retention**: Superior preservation of old class knowledge
-- **Enhanced Plasticity**: Effective learning of new classes  
-- **Balanced Performance**: Optimal trade-off between stability and adaptability
-
-### Qualitative Analysis
-
-![Qualitative Analysis](docs/fig/qualitative_analysis.png)
-
-Our qualitative results demonstrate zero forgetting and excellent learning performance. The visualization clearly shows how our decoupled approach maintains knowledge of previous classes while effectively learning new ones across different continual learning steps.
-
-### Challenging Settings
-Representative results on challenging 2-2 and 4-2 settings demonstrate the robustness of our approach.
 
 ## 🎯 Applications
 
@@ -103,8 +98,8 @@ If you find this work useful for your research, please cite:
 ## 📧 Contact
 
 For questions and discussions, please contact:
-- Yifu Guo: [20223801024@m.scnu.edu.cn](mailto:20223801024@m.scnu.edu.cn)
-- Ruixuan Wang: [wangruix5@mail.sysu.edu.cn](mailto:wangruix5@mail.sysu.edu.cn)
+- Yifu Guo: [1572189162@qq.com](mailto:1572189162@qq.com)
+- Yuquan Lu: [20223801024@m.scnu.edu.cn](mailto:20223801024@m.scnu.edu.cn)
 
 ## 🔗 Links
 
@@ -113,7 +108,7 @@ For questions and discussions, please contact:
 
 ## 📜 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
 
 ---
 
