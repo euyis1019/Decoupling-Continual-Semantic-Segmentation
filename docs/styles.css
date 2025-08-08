@@ -1,4 +1,4 @@
-/* /* Reset and base styles */
+/* Reset and base styles */
 * {
     margin: 0;
     padding: 0;
@@ -8,8 +8,9 @@
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #fff;
+    color: #2d3748;
+    background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+    min-height: 100vh;
 }
 
 .container {
@@ -18,212 +19,328 @@ body {
     padding: 0 20px;
 }
 
-/* Header */
+/* Header - 更现代的渐变和效果 */
 .header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
     color: white;
-    padding: 60px 0;
+    padding: 80px 0;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    opacity: 0.3;
+}
+
+.header .container {
+    position: relative;
+    z-index: 1;
 }
 
 .title {
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    text-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    background: linear-gradient(45deg, #fff, #f0f4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .subtitle {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 400;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
     opacity: 0.95;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .authors {
-    font-size: 1.1rem;
-    margin-bottom: 15px;
+    font-size: 1.15rem;
+    margin-bottom: 20px;
     line-height: 1.8;
 }
 
 .author {
-    margin: 0 8px;
+    margin: 0 10px;
     white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+.author:hover {
+    color: #f0f4ff;
+    transform: translateY(-2px);
 }
 
 .affiliations {
-    font-size: 0.95rem;
-    margin-bottom: 20px;
+    font-size: 1rem;
+    margin-bottom: 25px;
     opacity: 0.9;
     line-height: 1.6;
 }
 
 .notes {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-style: italic;
-    margin-top: 5px;
+    margin-top: 8px;
+    opacity: 0.8;
 }
 
 .conference {
-    margin-bottom: 30px;
+    margin-bottom: 35px;
 }
 
 .venue {
     display: inline-block;
-    background: rgba(255,255,255,0.2);
-    padding: 8px 20px;
-    border-radius: 25px;
+    background: rgba(255,255,255,0.15);
+    padding: 12px 25px;
+    border-radius: 30px;
     font-weight: 600;
-    font-size: 1rem;
-    backdrop-filter: blur(10px);
+    font-size: 1.1rem;
+    backdrop-filter: blur(15px);
     border: 1px solid rgba(255,255,255,0.3);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.venue:hover {
+    background: rgba(255,255,255,0.25);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.15);
 }
 
 .links {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 20px;
     flex-wrap: wrap;
 }
 
 .link-button {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 12px 24px;
+    gap: 10px;
+    padding: 15px 30px;
     background: rgba(255,255,255,0.15);
     color: white;
     text-decoration: none;
-    border-radius: 8px;
-    font-weight: 500;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
     transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
     border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
 }
 
 .link-button:hover {
     background: rgba(255,255,255,0.25);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.15);
 }
 
 /* Main content */
 .main {
-    padding: 80px 0;
+    padding: 100px 0;
+    background: white;
+    margin: 0 20px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+    position: relative;
+    top: -20px;
 }
 
 section {
-    margin-bottom: 80px;
+    margin-bottom: 100px;
+    padding: 0 40px;
 }
 
 h2 {
-    font-size: 2.5rem;
-    font-weight: 600;
-    margin-bottom: 30px;
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 40px;
     text-align: center;
-    color: #2c3e50;
+    color: #1a202c;
     position: relative;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 h2::after {
     content: '';
-    width: 60px;
-    height: 4px;
+    width: 80px;
+    height: 5px;
     background: linear-gradient(135deg, #667eea, #764ba2);
     display: block;
-    margin: 15px auto;
-    border-radius: 2px;
+    margin: 20px auto;
+    border-radius: 3px;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
 
 h3 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 600;
-    margin-bottom: 15px;
-    color: #34495e;
+    margin-bottom: 20px;
+    color: #2d3748;
 }
 
 h4 {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     font-weight: 600;
-    margin-bottom: 10px;
-    color: #34495e;
+    margin-bottom: 12px;
+    color: #2d3748;
 }
 
 /* Abstract section */
 .abstract {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     line-height: 1.8;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     text-align: justify;
-    color: #444;
+    color: #4a5568;
+    background: linear-gradient(135deg, #f7fafc, #edf2f7);
+    padding: 25px;
+    border-radius: 15px;
+    border-left: 5px solid #667eea;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
 }
 
-/* Figures */
+/* Figures - 优化图片大小控制和美化 */
 .figure {
     text-align: center;
-    margin: 40px 0;
+    margin: 50px 0;
+    padding: 30px;
+    background: linear-gradient(135deg, #f7fafc, #edf2f7);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
 }
 
 .figure img {
-    max-width: 80%; /* 控制图片不会铺满容器 */
+    max-width: 70%; /* 减小图片最大宽度从80%到70% */
     height: auto;
     display: block;
     margin: 0 auto;
+    border-radius: 15px;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+    transition: all 0.4s ease;
 }
 
 .figure img:hover {
-    transform: scale(1.02);
+    transform: scale(1.03);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+}
+
+/* 特定图片样式 */
+.overview-image {
+    max-width: 65%; /* 概览图片稍小一些 */
+}
+
+.architecture-image {
+    max-width: 60% !important; /* 架构图片调整到60% */
+}
+
+.results-image {
+    max-width: 75%; /* 结果图片可以稍大一些 */
+}
+
+/* 更具体的选择器来确保架构图片大小 */
+.figure .architecture-image {
+    max-width: 60% !important;
+    width: 60% !important;
+}
+
+.architecture-section .figure img.architecture-image {
+    max-width: 60% !important;
+    width: 60% !important;
 }
 
 .caption {
-    margin-top: 15px;
-    font-size: 0.95rem;
-    color: #666;
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #4a5568;
     font-style: italic;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
     text-align: left;
+    line-height: 1.6;
+    padding: 15px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
 }
 
-/* Method details */
+/* Method details - 改进排版 */
 .method-details {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-    gap: 40px;
-    margin-top: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); /* 调整最小宽度 */
+    gap: 30px; /* 减小间距 */
+    margin-top: 50px;
 }
 
 .stage {
-    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    background: linear-gradient(135deg, #ffffff, #f8fafc);
     padding: 30px;
-    border-radius: 16px;
-    border-left: 5px solid #667eea;
+    border-radius: 20px;
+    border-left: 6px solid #667eea;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.stage::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.stage:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.12);
 }
 
 .stage-number {
     background: linear-gradient(135deg, #667eea, #764ba2);
     color: white;
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
     margin-right: 15px;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
 }
 
 .stage ul {
     list-style: none;
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
 .stage li {
-    margin-bottom: 12px;
-    padding-left: 20px;
+    margin-bottom: 15px;
+    padding-left: 25px;
     position: relative;
+    line-height: 1.6;
+    color: #4a5568;
 }
 
 .stage li::before {
@@ -232,65 +349,157 @@ h4 {
     left: 0;
     color: #667eea;
     font-weight: bold;
+    font-size: 1.2rem;
 }
 
-/* Components grid */
+/* Components grid - 改进排版 */
 .components-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(4, 1fr); /* 固定4列，因为Architecture Details有4个组件 */
     gap: 30px;
-    margin-top: 40px;
+    margin-top: 50px;
 }
 
 .component {
-    background: white;
+    background: linear-gradient(135deg, #ffffff, #f8fafc);
     padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
     transition: all 0.3s ease;
-    border-top: 4px solid #667eea;
+    border-top: 6px solid #667eea;
+    height: auto; /* 改为自适应高度 */
+    min-height: 200px; /* 设置最小高度 */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* 改为顶部对齐 */
+    position: relative;
+    overflow: hidden;
+}
+
+.component::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
 }
 
 .component:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+}
+
+.component h4 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: #2d3748;
+    flex-shrink: 0; /* 防止标题被压缩 */
+}
+
+.component p {
+    margin: 0;
+    line-height: 1.5;
+    flex-grow: 1; /* 让描述文字占据剩余空间 */
+    font-size: 0.95rem;
+    color: #4a5568;
+    /* 移除overflow: hidden和align-items */
 }
 
 /* Results grid */
 .results-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(3, 1fr); /* 固定3列，因为Experimental Results有3个结果 */
     gap: 30px;
-    margin-top: 40px;
+    margin-top: 50px;
 }
 
 .result-item {
-    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    background: linear-gradient(135deg, #f0fff4, #e6fffa);
     padding: 25px;
-    border-radius: 12px;
-    border-left: 5px solid #28a745;
+    border-radius: 20px;
+    border-left: 6px solid #38a169;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    height: auto; /* 改为自适应高度 */
+    min-height: 180px; /* 设置最小高度 */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* 改为顶部对齐 */
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-/* Contributions grid */
+.result-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(135deg, #38a169, #48bb78);
+}
+
+.result-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+}
+
+.result-item h4 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: #2d3748;
+    flex-shrink: 0; /* 防止标题被压缩 */
+}
+
+.result-item p {
+    margin: 0;
+    line-height: 1.5;
+    flex-grow: 1; /* 让描述文字占据剩余空间 */
+    font-size: 0.95rem;
+    color: #4a5568;
+    /* 移除overflow: hidden和align-items */
+}
+
+/* Contributions grid - 改进排版使其更整齐 */
 .contributions-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(4, 1fr); /* 固定4列，因为Key Contributions有4个贡献 */
     gap: 30px;
-    margin-top: 40px;
+    margin-top: 50px;
 }
 
 .contribution {
     text-align: center;
-    padding: 30px 20px;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    padding: 30px 25px;
+    background: linear-gradient(135deg, #ffffff, #f8fafc);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
     transition: all 0.3s ease;
+    height: auto; /* 改为自适应高度 */
+    min-height: 220px; /* 设置最小高度 */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* 改为顶部对齐 */
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.contribution::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
 }
 
 .contribution:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
 }
 
 .contribution-icon {
@@ -304,53 +513,105 @@ h4 {
     justify-content: center;
     color: white;
     font-size: 2rem;
+    flex-shrink: 0; /* 防止图标被压缩 */
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    transition: all 0.3s ease;
+}
+
+.contribution:hover .contribution-icon {
+    transform: scale(1.1);
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+}
+
+.contribution h4 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: #2d3748;
+    flex-shrink: 0; /* 防止标题被压缩 */
+}
+
+.contribution p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+    flex-grow: 1;
+    color: #4a5568;
+    /* 移除overflow: hidden和align-items */
 }
 
 /* Applications grid */
 .applications-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr); /* 固定3列，因为Applications有3个应用 */
     gap: 30px;
-    margin-top: 40px;
+    margin-top: 50px;
 }
 
 .application {
     text-align: center;
     padding: 30px;
-    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-    border-radius: 12px;
+    background: linear-gradient(135deg, #f7fafc, #edf2f7);
+    border-radius: 20px;
     transition: all 0.3s ease;
+    height: auto;
+    min-height: 200px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+}
+
+.application::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
 }
 
 .application:hover {
     transform: translateY(-5px);
-    background: linear-gradient(135deg, #e9ecef, #dee2e6);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+    background: linear-gradient(135deg, #edf2f7, #e2e8f0);
 }
 
 .application i {
     font-size: 3rem;
     color: #667eea;
     margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.application:hover i {
+    transform: scale(1.1);
+    color: #764ba2;
 }
 
 /* Citation */
 .citation-box {
-    background: #f8f9fa;
-    border-radius: 8px;
+    background: linear-gradient(135deg, #f7fafc, #edf2f7);
+    border-radius: 15px;
     overflow: hidden;
-    margin-top: 20px;
+    margin-top: 30px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
 }
 
 .citation-box pre {
     margin: 0;
-    padding: 25px;
-    background: #2d3748;
+    padding: 30px;
+    background: linear-gradient(135deg, #2d3748, #4a5568);
     color: #e2e8f0;
     font-family: 'Fira Code', 'Courier New', monospace;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     line-height: 1.6;
     overflow-x: auto;
     cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.citation-box pre:hover {
+    background: linear-gradient(135deg, #1a202c, #2d3748);
 }
 
 .citation-box code {
@@ -361,7 +622,7 @@ h4 {
 .contact-info {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
     max-width: 600px;
     margin: 0 auto;
 }
@@ -369,40 +630,61 @@ h4 {
 .contact-item {
     display: flex;
     align-items: center;
-    gap: 15px;
-    padding: 20px;
-    background: #f8f9fa;
-    border-radius: 8px;
+    gap: 20px;
+    padding: 25px;
+    background: linear-gradient(135deg, #f7fafc, #edf2f7);
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
 }
 
 .contact-item i {
     color: #667eea;
-    font-size: 1.2rem;
-    width: 20px;
+    font-size: 1.4rem;
+    width: 25px;
 }
 
 .contact-item a {
     color: #667eea;
     text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
 }
 
 .contact-item a:hover {
+    color: #764ba2;
     text-decoration: underline;
 }
 
 /* Footer */
 .footer {
-    background: #2d3748;
+    background: linear-gradient(135deg, #2d3748, #4a5568);
     color: #e2e8f0;
     text-align: center;
-    padding: 40px 0;
-    margin-top: 80px;
+    padding: 50px 0;
+    margin-top: 100px;
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
 }
 
 .footer .note {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     opacity: 0.8;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 /* Responsive design */
@@ -428,14 +710,75 @@ h4 {
         font-size: 2rem;
     }
     
+    /* 移动端图片优化 */
+    .figure img {
+        max-width: 95%; /* 移动端图片可以更大一些 */
+    }
+    
+    .overview-image,
+    .results-image {
+        max-width: 95%;
+    }
+    
+    .architecture-image {
+        max-width: 60% !important; /* 架构图片在移动端调整到60% */
+    }
+    
+    .figure .architecture-image {
+        max-width: 60% !important;
+        width: 60% !important;
+    }
+    
+    .architecture-section .figure img.architecture-image {
+        max-width: 60% !important;
+        width: 60% !important;
+    }
+    
     .method-details {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
     
     .stage-number {
-        width: 35px;
-        height: 35px;
+        width: 30px;
+        height: 30px;
         font-size: 1rem;
+    }
+    
+    .components-grid {
+        grid-template-columns: repeat(2, 1fr); /* 平板端2列 */
+        gap: 20px;
+    }
+    
+    .results-grid {
+        grid-template-columns: repeat(2, 1fr); /* 平板端2列 */
+        gap: 20px;
+    }
+    
+    .contributions-grid {
+        grid-template-columns: repeat(2, 1fr); /* 平板端2列 */
+        gap: 20px;
+    }
+    
+    .applications-grid {
+        grid-template-columns: repeat(2, 1fr); /* 平板端2列 */
+        gap: 20px;
+    }
+    
+    /* 移动端卡片高度调整 */
+    .component {
+        height: auto;
+        min-height: 170px;
+    }
+    
+    .result-item {
+        height: auto;
+        min-height: 150px;
+    }
+    
+    .contribution {
+        height: auto;
+        min-height: 200px;
     }
     
     .links {
@@ -471,23 +814,101 @@ h4 {
         margin-bottom: 60px;
     }
     
-    .components-grid,
-    .contributions-grid,
-    .applications-grid {
-        grid-template-columns: 1fr;
-    }
-}
-.architecture-image {
-    max-width: 75%;  /* 控制在大屏上占容器 75% 宽 */
-    height: auto;
-    display: block;
-    margin: 0 auto;  /* 居中 */
-}
-
-@media (max-width: 768px) {
-    .architecture-image {
+    .figure img {
         max-width: 100%; /* 小屏时全宽显示 */
     }
+    
+    .overview-image,
+    .architecture-image,
+    .results-image {
+        max-width: 60% !important;
+    }
+    
+    .figure .architecture-image {
+        max-width: 60% !important;
+        width: 60% !important;
+    }
+    
+    .architecture-section .figure img.architecture-image {
+        max-width: 60% !important;
+        width: 60% !important;
+    }
+    
+    .components-grid {
+        grid-template-columns: 1fr; /* 手机端1列 */
+        gap: 15px;
+    }
+    
+    .results-grid {
+        grid-template-columns: 1fr; /* 手机端1列 */
+        gap: 15px;
+    }
+    
+    .contributions-grid {
+        grid-template-columns: 1fr; /* 手机端1列 */
+        gap: 15px;
+    }
+    
+    .applications-grid {
+        grid-template-columns: 1fr; /* 手机端1列 */
+        gap: 15px;
+    }
+    
+    .stage,
+    .component,
+    .result-item,
+    .contribution,
+    .application {
+        padding: 15px;
+    }
+    
+    /* 小屏幕卡片高度调整 */
+    .component {
+        height: auto;
+        min-height: 140px;
+    }
+    
+    .result-item {
+        height: auto;
+        min-height: 130px;
+    }
+    
+    .contribution {
+        height: auto;
+        min-height: 180px;
+    }
 }
-*/
+
+/* 移动端架构图片样式 */
+@media (max-width: 768px) {
+    .architecture-image {
+        max-width: 60% !important;
+    }
+    
+    .figure .architecture-image {
+        max-width: 60% !important;
+        width: 60% !important;
+    }
+    
+    .architecture-section .figure img.architecture-image {
+        max-width: 60% !important;
+        width: 60% !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .architecture-image {
+        max-width: 60% !important;
+    }
+    
+    .figure .architecture-image {
+        max-width: 60% !important;
+        width: 60% !important;
+    }
+    
+    .architecture-section .figure img.architecture-image {
+        max-width: 60% !important;
+        width: 60% !important;
+    }
+}
 
