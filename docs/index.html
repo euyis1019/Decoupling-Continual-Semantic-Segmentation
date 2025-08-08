@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -256,5 +256,270 @@
             });
         }
     </script>
+</body>
+</html>
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>DecoupleCSS: Decoupling Continual Semantic Segmentation</title>
+    <link href="styles.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <meta name="description" content="DecoupleCSS: Decoupling Continual Semantic Segmentation" />
+</head>
+<body>
+<header class="site-header">
+    <div class="container">
+        <h1 class="site-title">DecoupleCSS</h1>
+        <p class="site-subtitle">Decoupling Continual Semantic Segmentation</p>
+
+        <div class="authors">
+            <span>Yifu Guo<sup>1,2,*</sup></span>
+            <span>Yuquan Lu<sup>1,2,*</sup></span>
+            <span>Wentao Zhang<sup>1</sup></span>
+            <span>Zishan Xu<sup>2</sup></span>
+            <span>Dexia Chen<sup>1</sup></span>
+            <span>Siyu Zhang<sup>3</sup></span>
+            <span>Yizhe Zhang<sup>4</sup></span>
+            <span>Ruixuan Wang<sup>1,†</sup></span>
+        </div>
+        <p class="affiliations">
+            <sup>1</sup>Sun Yat-sen University &nbsp; <sup>2</sup>South China Normal University &nbsp;
+            <sup>3</sup>Southwest University &nbsp; <sup>4</sup>Nanjing University of Science and Technology
+        </p>
+        <p class="notes"><sup>*</sup>Equal contribution. <sup>†</sup>Corresponding author.</p>
+
+        <div class="links">
+            <a class="btn" href="https://arxiv.org/pdf/2508.05065" target="_blank" rel="noopener">
+                <i class="fas fa-file-pdf"></i><span>Paper (arXiv)</span>
+            </a>
+            <a class="btn btn-secondary" href="https://github.com/euyis1019/Decoupling-Continual-Semantic-Segmentation" target="_blank" rel="noopener">
+                <i class="fab fa-github"></i><span>Code (Coming Soon)</span>
+            </a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Abstract</h2>
+            <p class="abstract">
+                Continual Semantic Segmentation (CSS) requires learning new classes without forgetting previously acquired knowledge, addressing the fundamental challenge of catastrophic forgetting in dense prediction tasks. However, existing CSS methods typically employ single-stage encoder–decoder architectures where segmentation masks and class labels are tightly coupled, leading to interference between old and new class learning and suboptimal retention–plasticity balance.
+            </p>
+            <p class="abstract">
+                We introduce <strong>DecoupleCSS</strong>, a two-stage framework for CSS. By decoupling class-aware detection from class-agnostic segmentation, DecoupleCSS preserves past knowledge while learning new classes. Stage one fuses pre-trained text and image encoders (adapted via LoRA) to encode class-specific information and generate location-aware prompts. Stage two employs the Segment Anything Model (SAM) to output precise segmentation masks, ensuring segmentation knowledge is shared across both new and previous classes.
+            </p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Method Overview</h2>
+
+            <figure class="figure">
+                <img src="fig/method_overview.jpg" alt="Method Overview diagram">
+                <figcaption class="caption">
+                    <strong>Overview.</strong> (a) Language-driven task-aware class detection, prompt generation, and class-agnostic segmentation. (b) Representative results on 2-2 and 4-2 settings on Pascal VOC 2012.
+                </figcaption>
+            </figure>
+
+            <div class="grid grid-2">
+                <div class="card flat">
+                    <h3 class="h3"><span class="badge">1</span> Class-Aware Detection</h3>
+                    <ul class="list">
+                        <li><strong>Text–Image Fusion:</strong> extract class-specific semantics</li>
+                        <li><strong>LoRA Adaptation:</strong> adapt image encoders while preserving old knowledge</li>
+                        <li><strong>Prompt Generation:</strong> produce class- and location-aware prompts</li>
+                    </ul>
+                </div>
+                <div class="card flat">
+                    <h3 class="h3"><span class="badge">2</span> Class-Agnostic Segmentation</h3>
+                    <ul class="list">
+                        <li><strong>SAM Integration:</strong> precise masks via class-agnostic foundation model</li>
+                        <li><strong>Knowledge Sharing:</strong> masks shared across old/new classes</li>
+                        <li><strong>Consistent Performance:</strong> uniform quality for all classes</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Architecture Details</h2>
+
+            <figure class="figure">
+                <img src="fig/method_model.png" alt="Model Architecture">
+                <figcaption class="caption">
+                    <strong>Detailed architecture.</strong> Red: class-aware detection; Gray: class-agnostic segmentation.
+                </figcaption>
+            </figure>
+
+            <div class="grid grid-4">
+                <div class="card">
+                    <h4 class="h4">Pre-trained Text Encoder</h4>
+                    <p>Processes class-specific textual cues to guide detection.</p>
+                </div>
+                <div class="card">
+                    <h4 class="h4">LoRA-adapted Image Encoder</h4>
+                    <p>Efficient adaptation with minimal forgetting.</p>
+                </div>
+                <div class="card">
+                    <h4 class="h4">Prompt Generator</h4>
+                    <p>Creates location-aware prompts from fused features.</p>
+                </div>
+                <div class="card">
+                    <h4 class="h4">SAM Segmentator</h4>
+                    <p>Generates high-quality class-agnostic masks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Experimental Results</h2>
+
+            <figure class="figure">
+                <img src="fig/exp_main_results.png" alt="Main Experimental Results">
+                <figcaption class="caption">
+                    <strong>Main results.</strong> State-of-the-art performance across multiple CSS benchmarks.
+                </figcaption>
+            </figure>
+
+            <div class="grid grid-3">
+                <div class="card flat accent-left">
+                    <h4 class="h4">Pascal VOC 2012</h4>
+                    <p>Improvements on 19-1, 15-5, 10-1, 2-2, and 4-2; better retention and robust in challenging splits.</p>
+                </div>
+                <div class="card flat accent-left">
+                    <h4 class="h4">ADE20K</h4>
+                    <p>Strong performance on 100-50 and 150-50 multi-class settings.</p>
+                </div>
+                <div class="card flat accent-left">
+                    <h4 class="h4">Challenging Scenarios</h4>
+                    <p>Robustness under 2-2 and 4-2 incremental regimes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Key Contributions</h2>
+
+            <div class="grid grid-4">
+                <div class="card center">
+                    <div class="icon-circle"><i class="fas fa-lightbulb"></i></div>
+                    <h4 class="h4">Novel Framework</h4>
+                    <p>Decouples detection and segmentation in CSS.</p>
+                </div>
+                <div class="card center">
+                    <div class="icon-circle"><i class="fas fa-robot"></i></div>
+                    <h4 class="h4">Foundation Models</h4>
+                    <p>Integrates SAM for continual segmentation.</p>
+                </div>
+                <div class="card center">
+                    <div class="icon-circle"><i class="fas fa-balance-scale"></i></div>
+                    <h4 class="h4">Knowledge Preservation</h4>
+                    <p>Improved retention–plasticity balance.</p>
+                </div>
+                <div class="card center">
+                    <div class="icon-circle"><i class="fas fa-trophy"></i></div>
+                    <h4 class="h4">SOTA Performance</h4>
+                    <p>Consistent gains across benchmarks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Applications</h2>
+
+            <div class="grid grid-3">
+                <div class="card center flat">
+                    <i class="fas fa-car icon-xl"></i>
+                    <h4 class="h4">Autonomous Driving</h4>
+                    <p>Incrementally learns new road elements and scenarios.</p>
+                </div>
+                <div class="card center flat">
+                    <i class="fas fa-heartbeat icon-xl"></i>
+                    <h4 class="h4">Medical Imaging</h4>
+                    <p>Progressively acquires new anatomical/pathology concepts.</p>
+                </div>
+                <div class="card center flat">
+                    <i class="fas fa-satellite icon-xl"></i>
+                    <h4 class="h4">Remote Sensing</h4>
+                    <p>Adapts to novel land-use types and features.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Citation</h2>
+            <div class="citation-box" title="Click to copy">
+<pre><code>@misc{guo2025decouplingcontinualsemanticsegmentation,
+  title={Decoupling Continual Semantic Segmentation},
+  author={Yifu Guo and Yuquan Lu and Wentao Zhang and Zishan Xu and Dexia Chen and Siyu Zhang and Yizhe Zhang and Ruixuan Wang},
+  year={2025},
+  eprint={2508.05065},
+  archivePrefix={arXiv},
+  primaryClass={cs.CV},
+  url={https://arxiv.org/abs/2508.05065}
+}</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <div class="contacts">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <strong>Yifu Guo:</strong>
+                        <a href="mailto:1572189162@qq.com">1572189162@qq.com</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <strong>Yuquan Lu:</strong>
+                        <a href="mailto:20223801024@m.scnu.edu.cn">20223801024@m.scnu.edu.cn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <p>&copy; 2024 DecoupleCSS.</p>
+        <p class="muted">Code will be released upon paper acceptance.</p>
+    </div>
+</footer>
+
+<script>
+/* Copy citation to clipboard with basic feedback */
+const citation = document.querySelector('.citation-box');
+if (citation) {
+    citation.addEventListener('click', () => {
+        const text = citation.innerText;
+        navigator.clipboard.writeText(text).then(() => {
+            citation.setAttribute('data-copied', 'Copied');
+            setTimeout(() => citation.removeAttribute('data-copied'), 1500);
+        });
+    });
+}
+</script>
 </body>
 </html>
