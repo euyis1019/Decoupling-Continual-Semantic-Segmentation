@@ -2,7 +2,7 @@
 
 [![arXiv](https://img.shields.io/badge/arXiv-2508.05065-b31b1b.svg)](https://arxiv.org/pdf/2508.05065)
 [![Project Page](https://img.shields.io/badge/Project-Page-green.svg)](https://euyis1019.github.io/Decoupling-Continual-Semantic-Segmentation/)
-[![Code](https://img.shields.io/badge/Code-GitHub-blue.svg)](https://github.com/euyis1019/DecoupleCSS)
+[![Code](https://img.shields.io/badge/Code-GitHub-blue.svg)](https://github.com/euyis1019/Decoupling-Continual-Semantic-Segmentation)
 > **Decoupling Continual Semantic Segmentation**  
 > Yifu Guo*, Yuquan Lu*, Wentao Zhang, Zishan Xu, Dexia Chen, Siyu Zhang, Yizhe Zhang, Ruixuan Wang†  
 > *Sun Yat-sen University, South China Normal University, Southwest University, Nanjing University of Science and Technology*
