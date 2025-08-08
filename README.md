@@ -1,6 +1,6 @@
 # DecoupleCSS: Decoupling Continual Semantic Segmentation
 
-[![arXiv](https://img.shields.io/badge/arXiv-2024.XXXXX-b31b1b.svg)](https://arxiv.org/pdf/2508.05065)
+[![arXiv](https://img.shields.io/badge/arXiv-2508.05065-b31b1b.svg)](https://arxiv.org/pdf/2508.05065)
 [![Project Page](https://img.shields.io/badge/Project-Page-green.svg)](https://euyis1019.github.io/Decoupling-Continual-Semantic-Segmentation/)
 
 > **Decoupling Continual Semantic Segmentation**  
