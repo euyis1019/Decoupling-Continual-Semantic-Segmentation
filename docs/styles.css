@@ -476,4 +476,18 @@ h4 {
     .applications-grid {
         grid-template-columns: 1fr;
     }
-} */
+}
+.architecture-image {
+    max-width: 75%;  /* 控制在大屏上占容器 75% 宽 */
+    height: auto;
+    display: block;
+    margin: 0 auto;  /* 居中 */
+}
+
+@media (max-width: 768px) {
+    .architecture-image {
+        max-width: 100%; /* 小屏时全宽显示 */
+    }
+}
+*/
+
