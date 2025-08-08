@@ -165,11 +165,10 @@ h4 {
 }
 
 .figure img {
-    max-width: 100%;
+    max-width: 80%; /* 控制图片不会铺满容器 */
     height: auto;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
+    display: block;
+    margin: 0 auto;
 }
 
 .figure img:hover {
