@@ -87,11 +87,14 @@ DecoupleCSS is particularly suited for:
 If you find this work useful for your research, please cite:
 
 ```bibtex
-@article{guo2024decoupling,
-  title={Decoupling Continual Semantic Segmentation},
-  author={Guo, Yifu and Lu, Yuquan and Zhang, Wentao and Xu, Zishan and Chen, Dexia and Zhang, Siyu and Zhang, Yizhe and Wang, Ruixuan},
-  journal={arXiv preprint arXiv:XXXXX},
-  year={2024}
+@misc{guo2025decouplingcontinualsemanticsegmentation,
+      title={Decoupling Continual Semantic Segmentation}, 
+      author={Yifu Guo and Yuquan Lu and Wentao Zhang and Zishan Xu and Dexia Chen and Siyu Zhang and Yizhe Zhang and Ruixuan Wang},
+      year={2025},
+      eprint={2508.05065},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2508.05065}, 
 }
 ```
 
