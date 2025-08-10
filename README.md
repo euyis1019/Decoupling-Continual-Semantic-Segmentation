@@ -12,9 +12,9 @@
     <img src="https://img.shields.io/badge/Code-GitHub-blue.svg">
   </a>
 </p>
-<p align="center" style="color:gray;">
-Yifu Guo*, Yuquan Lu*, Wentao Zhang, Zishan Xu, Dexia Chen, Siyu Zhang, Yizhe Zhang, Ruixuan Wang†  
-*Sun Yat-sen University, South China Normal University, Southwest University, Nanjing University of Science and Technology*
+<p align="center">
+<sub>Yifu Guo*, Yuquan Lu*, Wentao Zhang, Zishan Xu, Dexia Chen, Siyu Zhang, Yizhe Zhang, Ruixuan Wang†</sub>  
+<sub>*Sun Yat-sen University, South China Normal University, Southwest University, Nanjing University of Science and Technology*</sub>
 </p>
 
 
