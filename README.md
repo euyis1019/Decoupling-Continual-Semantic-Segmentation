@@ -1,4 +1,5 @@
-# DecoupleCSS: Decoupling Continual Semantic Segmentation
+<h1 align="center">DecoupleCSS: Decoupling Continual Semantic Segmentation</h1>
+
 
 <p align="center">
   <a href="https://arxiv.org/pdf/2508.05065">
