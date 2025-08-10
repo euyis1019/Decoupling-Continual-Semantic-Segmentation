@@ -1,6 +1,5 @@
 <h1 align="center">DecoupleCSS: Decoupling Continual Semantic Segmentation</h1>
 
-
 <p align="center">
   <a href="https://arxiv.org/pdf/2508.05065">
     <img src="https://img.shields.io/badge/arXiv-2508.05065-b31b1b.svg">
@@ -12,9 +11,10 @@
     <img src="https://img.shields.io/badge/Code-GitHub-blue.svg">
   </a>
 </p>
+
 <p align="center">
-<span style="color:gray;">Yifu Guo*, Yuquan Lu*, Wentao Zhang, Zishan Xu, Dexia Chen, Siyu Zhang, Yizhe Zhang, Ruixuan Wang†</span>  
-<span style="color:gray;">*Sun Yat-sen University, South China Normal University, Southwest University, Nanjing University of Science and Technology*</span>
+  <sub>Yifu Guo*, Yuquan Lu*, Wentao Zhang, Zishan Xu, Dexia Chen, Siyu Zhang, Yizhe Zhang, Ruixuan Wang†</sub><br>
+  <sub>*Sun Yat-sen University, South China Normal University, Southwest University, Nanjing University of Science and Technology*</sub>
 </p>
 
 
