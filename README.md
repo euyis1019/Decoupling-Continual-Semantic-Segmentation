@@ -13,9 +13,10 @@
   </a>
 </p>
 <p align="center">
-<sub>Yifu Guo*, Yuquan Lu*, Wentao Zhang, Zishan Xu, Dexia Chen, Siyu Zhang, Yizhe Zhang, Ruixuan Wang†</sub>  
-<sub>*Sun Yat-sen University, South China Normal University, Southwest University, Nanjing University of Science and Technology*</sub>
+<span style="color:gray;">Yifu Guo*, Yuquan Lu*, Wentao Zhang, Zishan Xu, Dexia Chen, Siyu Zhang, Yizhe Zhang, Ruixuan Wang†</span>  
+<span style="color:gray;">*Sun Yat-sen University, South China Normal University, Southwest University, Nanjing University of Science and Technology*</span>
 </p>
+
 
 
 ## 📝 Abstract
