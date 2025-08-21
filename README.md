@@ -1,16 +1,11 @@
 <h1 align="center">DecoupleCSS: Decoupling Continual Semantic Segmentation</h1>
 
 <p align="center">
-  <a href="https://arxiv.org/pdf/2508.05065">
-    <img src="https://img.shields.io/badge/arXiv-2508.05065-b31b1b.svg">
-  </a>
-  <a href="https://euyis1019.github.io/Decoupling-Continual-Semantic-Segmentation/">
-    <img src="https://img.shields.io/badge/Project-Page-green.svg">
-  </a>
-  <a href="https://github.com/euyis1019/Decoupling-Continual-Semantic-Segmentation">
-    <img src="https://img.shields.io/badge/Code-GitHub-blue.svg">
-  </a>
+  <a href="https://arxiv.org/pdf/2508.05065"><img src="https://img.shields.io/badge/arXiv-2508.05065-b31b1b.svg"></a>
+  <a href="https://euyis1019.github.io/Decoupling-Continual-Semantic-Segmentation/"><img src="https://img.shields.io/badge/Project-Page-green.svg"></a>
+  <a href="https://github.com/euyis1019/Decoupling-Continual-Semantic-Segmentation"><img src="https://img.shields.io/badge/Code-GitHub-blue.svg"></a>
 </p>
+
 
 <p align="center">
   Yifu Guo*, Yuquan Lu*, Wentao Zhang, Zishan Xu, Dexia Chen, Siyu Zhang, Yizhe Zhang, Ruixuan Wang†<br>
